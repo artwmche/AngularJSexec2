@@ -1,0 +1,21 @@
+<p>
+  Periodic Table works!
+</p>
+<form>Search: <input type="text" size="20" name="search" (keyup)="searchPeriodic($event)"></form>
+<table border="0" align="center" id="PeriodicTable">
+  <tbody>
+    <tr *ngFor="let row of table">
+      <td *ngFor="let element of row" >
+        <div *ngIf="element" class="card" style="width: 80px;height: 70px" id="{{ element.name }}">
+          <div class="card-body p-1">
+            <div class="card-text" style="font-size: 5pt;text-align: left">{{ element.number}}</div>
+            <h5 class="card-title">{{ element.symbol}}</h5>
+            <h6 class="card-subtitle" style="font-size: 6pt">{{ element.name}}</h6>
+            <div class="card-text" style="font-size: 5pt;text-align:right;">{{ element.atomic_mass}}</div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+

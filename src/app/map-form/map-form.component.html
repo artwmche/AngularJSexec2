@@ -1,0 +1,28 @@
+<table width="80%" align="center"><tbody><tr><td>
+<form #search="ngForm" (ngSubmit)="handleSubmit(search)">
+  <div class="input-group my-3">
+    <input type="text" class="form-control" name="query" ngModel>
+    <div class="input-group-append">
+      <button class="btn btn-primary">Search</button>
+    </div>
+  </div>
+</form>
+
+<div class="results card" *ngIf=" timezone ; else result">
+  <div class="card-body">
+    <p class="my-0">Time Zone: {{ timezone }}</p>
+  </div>
+</div>
+
+<!-- Map Component -->
+<app-map [latLng]="latLng"></app-map>
+
+<!-- Else code -->
+<div *ngIf="!latLng && querying">
+  Loading...
+</div>
+<ng-template #result>
+  <!--  Loading...-->
+</ng-template>
+</td></tr>
+</tbody></table>
